@@ -58,6 +58,12 @@ class Pusher
 		return $s->execute([$userID, $token]);
 	}
 
+	public function deleteToken($token)
+	{
+		$s = $this->db->prepare("DELETE FROM {$this->tableName} WHERE token = ?");
+		return $s->execute([$token]);
+	}
+
 	public function deleteUserToken($userID, $token)
 	{
 		$s = $this->db->prepare("DELETE FROM {$this->tableName} WHERE userID = ? AND token = ?");
@@ -78,6 +84,7 @@ class Pusher
 		return $s->fetchAll(PDO::FETCH_OBJ);
 	}
 
+	// TODO: Finish implementing this
 	public function push($userID, $message)
 	{
 		$devices = [];

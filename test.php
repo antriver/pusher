@@ -8,11 +8,11 @@ $cfg = require __DIR__ . '/config.php';
 */
 $db = new \PDO("{$cfg['dbDriver']}:dbname={$cfg['dbName']};host={$cfg['dbHost']}", $cfg['dbUser'], $cfg['dbPassword']);
 
-$pushManager = new \Tmd\Pusher\Pusher($db, [
+$pusher = new \Tmd\Pusher\Pusher($db, [
 	'urbanAirshipAppKey' => $cfg['urbanAirshipAppKey'],
 	'urbanAirshipMasterSecret' => $cfg['urbanAirshipMasterSecret']
 ]);
 
-$pushManager->importUrbanAirshipTokens();
+$pusher->importUrbanAirshipTokens();
 
-//$pushManager->push(1, 'hello');
+//$pusher->push(1, 'hello');
