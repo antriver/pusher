@@ -26,7 +26,7 @@ class Pusher
 	private $urbanAirshipAppKey = null;
 	private $urbanAirshipMasterSecret = null;
 
-
+	private $production = false;
 
 	private $db = null;
 	private $PushManager = null;
@@ -92,7 +92,7 @@ class Pusher
 			$devices[] = new Device($token);
 		}
 
-		$pushManager = new PushManager(PushManager::ENVIRONMENT_DEV);
+		$pushManager = new PushManager($this->production ? PushManager::ENVIRONMENT_PROD : PushManager::ENVIRONMENT_DEV);
 
 		$adapter = new ApnsAdapter();
 		$message = new Message($message);
