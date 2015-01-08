@@ -1,3 +1,4 @@
 vendor
 config.php
-apns.pem
+*.cer
+*.pem
