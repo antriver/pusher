@@ -64,6 +64,13 @@ class Pusher
 		return $s->execute([$token]);
 	}
 
+	public function getToken($token)
+	{
+		$s = $this->db->prepare("SELECT * FROM {$this->tableName} WHERE token = ?");
+		$s->execute([$token]);
+		return $s->fetch(PDO::FETCH_OBJ);
+	}
+
 	public function deleteUserToken($userID, $token)
 	{
 		$s = $this->db->prepare("DELETE FROM {$this->tableName} WHERE userID = ? AND token = ?");
@@ -78,11 +85,12 @@ class Pusher
 
 	public function getUserTokens($userID)
 	{
-		var_dump($userID);
 		$s = $this->db->prepare("SELECT token FROM {$this->tableName} WHERE userID = ?");
 		$s->execute([$userID]);
 		return $s->fetchAll(PDO::FETCH_OBJ);
 	}
+
+
 
 	// TODO: Finish implementing this
 	public function push($userID, $message)
