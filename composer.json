@@ -1,4 +1,13 @@
 {
+    "name": "tmd/pusher",
+    "description": "Migration from UrbanAirship push notifications to a PHP package.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anthony Kuske",
+            "homepage": "http://www.anthonykuske.com"
+        }
+    ],
     "require": {
         "sly/notification-pusher": "2.x",
         "urbanairship/urbanairship": "0.1.3"
