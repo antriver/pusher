@@ -95,20 +95,34 @@ class Pusher
 	// TODO: Finish implementing this
 	public function push($userID, $message)
 	{
-		$devices = [];
-		foreach ($this->getUserTokens($userID) as $token) {
-			$devices[] = new Device($token);
-		}
+        // Devices to send to
+        $devices = [];
+        foreach ($this->getUserTokens($userID) as $token) {
+            $devices[] = new Device($token);
+        }
+
+        if (empty($devices)) {
+            return false;
+        }
+
 
 		$pushManager = new PushManager($this->production ? PushManager::ENVIRONMENT_PROD : PushManager::ENVIRONMENT_DEV);
 
+        // Adapter to send with
 		$adapter = new ApnsAdapter(array(
             'certificate' => $this->apnsCertificatePath,
         ));
-		$message = new Message($message);
 
-		$pushManager = $this->getPushManager();
-		var_dump($pushManager);
+        // Message to send
+        // See: https://github.com/Ph3nol/NotificationPusher/blob/master/doc/apns-adapter.md
+		$message = new Message($message['text'], $message);
+
+
+		//$pushManager = $this->getPushManager();
+
+        $push = new Push($apnsAdapter, $devices, $message);
+        $pushManager->add($push);
+        return $pushManager->push(); // Returns a collection of notified devices
 	}
 
 	public function importUrbanAirshipTokens()
