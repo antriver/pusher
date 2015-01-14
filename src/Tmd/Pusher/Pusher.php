@@ -102,7 +102,9 @@ class Pusher
 
 		$pushManager = new PushManager($this->production ? PushManager::ENVIRONMENT_PROD : PushManager::ENVIRONMENT_DEV);
 
-		$adapter = new ApnsAdapter();
+		$adapter = new ApnsAdapter(array(
+            'certificate' => $this->apnsCertificatePath,
+        ));
 		$message = new Message($message);
 
 		$pushManager = $this->getPushManager();
