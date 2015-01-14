@@ -90,9 +90,6 @@ class Pusher
 		return $s->fetchAll(PDO::FETCH_OBJ);
 	}
 
-
-
-	// TODO: Finish implementing this
 	public function push($userID, $message)
 	{
         // Devices to send to
