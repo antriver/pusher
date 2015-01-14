@@ -98,7 +98,7 @@ class Pusher
         // Devices to send to
         $devices = [];
         foreach ($this->getUserTokens($userID) as $token) {
-            $devices[] = new Device($token->token);
+            $devices[] = new Device(strtolower($token->token));
         }
 
         if (empty($devices)) {
