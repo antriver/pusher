@@ -105,7 +105,6 @@ class Pusher
             return false;
         }
 
-
 		$pushManager = new PushManager($this->production ? PushManager::ENVIRONMENT_PROD : PushManager::ENVIRONMENT_DEV);
 
         // Adapter to send with
@@ -118,9 +117,7 @@ class Pusher
 		$message = new Message($message['text'], $message);
 
 
-		//$pushManager = $this->getPushManager();
-
-        $push = new Push($apnsAdapter, $devices, $message);
+        $push = new Push($adapter, $devices, $message);
         $pushManager->add($push);
         return $pushManager->push(); // Returns a collection of notified devices
 	}
