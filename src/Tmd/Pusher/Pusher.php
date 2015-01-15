@@ -85,7 +85,7 @@ class Pusher
 
 	public function getUserTokens($userID)
 	{
-		$s = $this->db->prepare("SELECT token FROM {$this->tableName} WHERE userID = ?");
+		$s = $this->db->prepare("SELECT DISTINCT token FROM {$this->tableName} WHERE userID = ?");
 		$s->execute([$userID]);
 		return $s->fetchAll(PDO::FETCH_OBJ);
 	}
