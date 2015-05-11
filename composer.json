@@ -10,7 +10,7 @@
     ],
     "require": {
         "sly/notification-pusher": "2.x",
-        "urbanairship/urbanairship": "0.1.3"
+        "urbanairship/urbanairship": "dev-master"
     },
     "autoload": {
         "psr-0": {

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c3e6de472170242dd2a956cbeba37c81",
+    "hash": "4929720573dbbf7f8eb618cf9f991917",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -442,23 +442,24 @@
         },
         {
             "name": "urbanairship/urbanairship",
-            "version": "0.1.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/urbanairship/php-library2.git",
-                "reference": "7c5ce061c10d528d90a70e843b34ce99cd04a98a"
+                "reference": "ea6a6ac4f5508ec951f29bdb2c28ea642563faa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/urbanairship/php-library2/zipball/7c5ce061c10d528d90a70e843b34ce99cd04a98a",
-                "reference": "7c5ce061c10d528d90a70e843b34ce99cd04a98a",
+                "url": "https://api.github.com/repos/urbanairship/php-library2/zipball/ea6a6ac4f5508ec951f29bdb2c28ea642563faa2",
+                "reference": "ea6a6ac4f5508ec951f29bdb2c28ea642563faa2",
                 "shasum": ""
             },
             "require": {
-                "monolog/monolog": "1.5.0",
+                "monolog/monolog": "1.*",
                 "nategood/httpful": "*"
             },
             "require-dev": {
+                "phpdocumentor/phpdocumentor": "2.*",
                 "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
@@ -486,7 +487,7 @@
             ],
             "description": "Urban Airship PHP Library",
             "homepage": "http://docs.urbanairship.com/reference/libraries/php/",
-            "time": "2013-09-24 17:12:56"
+            "time": "2014-12-03 00:57:49"
         },
         {
             "name": "zendframework/zend-escaper",
@@ -914,8 +915,11 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "urbanairship/urbanairship": 20
+    },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
